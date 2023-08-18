@@ -24,10 +24,9 @@ test.describe("E2E test", () => {
     await checkout.cart_tab();
     await page.waitForSelector(checkout.price_m);
     const checkout_price = await checkout.product_price_on_checkout();
-    await checkout.purchase_button();
+    await checkout.place_order_button();
     const form_price = await checkout.product_price_on_form();
     await expect(checkout_price).toEqual(form_price);
-    await page.waitForTimeout(3000);
     await checkout.fill_name(checkout.name);
     await checkout.fill_country(checkout.country);
     await checkout.fill_city(checkout.city);

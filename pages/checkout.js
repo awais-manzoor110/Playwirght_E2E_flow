@@ -17,7 +17,7 @@ exports.Checkout = class Checkout {
     this.credit_card_f = "#card";
     this.month_f = "#month";
     this.year_f = "#year";
-    this.purchase_btn = "[data-target='#orderModal']";
+    this.purchase_btn = "[onclick='purchaseOrder()']";
     this.success_m = "//div[@data-animation='pop']/h2";
     this.name = "Awais";
     this.country = "Pakistan";
@@ -43,7 +43,7 @@ exports.Checkout = class Checkout {
   }
 
   async place_order_button() {
-    await this.page.locator(this.place_order_btn);
+    await this.page.click(this.place_order_btn);
   }
 
   async fill_name(name) {
@@ -66,7 +66,7 @@ exports.Checkout = class Checkout {
     await this.page.locator(this.year_f).fill(year);
   }
   async purchase_button() {
-    await this.page.waitForSelector(this.purchase_btn);
+    // await this.page.locator(this.purchase_btn).focus();
     await this.page.click(this.purchase_btn);
   }
 
